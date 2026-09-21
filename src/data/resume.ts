@@ -9,6 +9,7 @@ export const profile = {
   email: 'ravireddy988@gmail.com',
   phone: '+91 90598 82868',
   linkedin: 'https://linkedin.com/in/nagavolu-ravi-13985b14b',
+  github: 'https://github.com/ravireddy988',
   location: 'Hyderabad, India',
 }
 

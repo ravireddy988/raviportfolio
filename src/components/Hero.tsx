@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Mail } from 'lucide-react'
 import { heroBadges, profile } from '../data/resume'
-import { LinkedinIcon } from './icons'
+import { GithubIcon, LinkedinIcon } from './icons'
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
@@ -120,6 +120,9 @@ export function Hero() {
       >
         <a href={profile.linkedin} target="_blank" rel="noreferrer" className="transition-colors hover:text-text">
           <LinkedinIcon size={20} />
+        </a>
+        <a href={profile.github} target="_blank" rel="noreferrer" className="transition-colors hover:text-text">
+          <GithubIcon size={20} />
         </a>
         <a href={`mailto:${profile.email}`} className="transition-colors hover:text-text">
           <Mail size={20} />

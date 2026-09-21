@@ -1,7 +1,7 @@
 import { Mail, MapPin, Phone } from 'lucide-react'
 import { profile } from '../data/resume'
 import { FadeIn } from './FadeIn'
-import { LinkedinIcon } from './icons'
+import { GithubIcon, LinkedinIcon } from './icons'
 
 export function Contact() {
   return (
@@ -27,6 +27,9 @@ export function Contact() {
           </a>
           <a href={profile.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-text">
             <LinkedinIcon size={16} /> LinkedIn
+          </a>
+          <a href={profile.github} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-text">
+            <GithubIcon size={16} /> GitHub
           </a>
           <span className="flex items-center gap-2">
             <MapPin size={16} /> {profile.location}
