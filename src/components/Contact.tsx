@@ -5,7 +5,7 @@ import { GithubIcon, LinkedinIcon } from './icons'
 
 export function Contact() {
   return (
-    <section id="contact" className="mx-auto max-w-5xl px-6 py-24 text-center">
+    <section id="contact" className="mx-auto max-w-5xl px-6 py-16 text-center">
       <FadeIn>
         <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
           Have a project or frontend challenge?

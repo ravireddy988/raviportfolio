@@ -69,7 +69,7 @@ export const skillGroups = [
 
 export const experience = [
   {
-    company: 'Lakkshion SIT Pvt. Ltd.',
+    company: 'LakkshionsIT Pvt. Ltd.',
     role: 'Senior Frontend Developer',
     duration: 'Sep 2025 – Present',
     project: 'MediaOps',

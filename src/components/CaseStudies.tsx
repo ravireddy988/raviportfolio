@@ -1,15 +1,23 @@
+import { Film, LayoutGrid, Zap } from 'lucide-react'
 import { caseStudies } from '../data/resume'
 import { FadeIn } from './FadeIn'
 import { SectionHeading } from './SectionHeading'
 
+const icons = [Film, Zap, LayoutGrid]
+
 export function CaseStudies() {
   return (
-    <section id="case-studies" className="mx-auto max-w-5xl px-6 py-20">
+    <section id="case-studies" className="mx-auto max-w-5xl px-6 py-14">
       <SectionHeading eyebrow="Case Studies" title="Deeper engineering write-ups" />
       <div className="grid gap-6 sm:grid-cols-3">
-        {caseStudies.map((cs, i) => (
+        {caseStudies.map((cs, i) => {
+          const Icon = icons[i] ?? Film
+          return (
           <FadeIn key={cs.title} delay={i * 0.08}>
-            <div className="h-full rounded-2xl border border-border bg-surface p-6">
+            <div className="h-full rounded-2xl border border-border bg-surface p-6 transition-all hover:-translate-y-1 hover:border-accent hover:shadow-lg hover:shadow-accent/10">
+              <span className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                <Icon size={18} />
+              </span>
               <h3 className="mb-4 text-base font-semibold text-text">{cs.title}</h3>
 
               {cs.detail ? (
@@ -60,7 +68,8 @@ export function CaseStudies() {
               )}
             </div>
           </FadeIn>
-        ))}
+          )
+        })}
       </div>
     </section>
   )

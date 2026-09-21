@@ -4,7 +4,7 @@ import { SectionHeading } from './SectionHeading'
 
 export function About() {
   return (
-    <section id="about" className="mx-auto max-w-5xl px-6 py-20">
+    <section id="about" className="mx-auto max-w-5xl px-6 py-14">
       <SectionHeading eyebrow="About" title="Who I am" />
       <FadeIn delay={0.1}>
         <div className="space-y-4 text-muted">

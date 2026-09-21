@@ -4,7 +4,7 @@ import { SectionHeading } from './SectionHeading'
 
 export function Experience() {
   return (
-    <section id="experience" className="mx-auto max-w-5xl px-6 py-20">
+    <section id="experience" className="mx-auto max-w-5xl px-6 py-14">
       <SectionHeading eyebrow="Experience" title="Where I've worked" />
       <div className="relative space-y-10 pl-8">
         <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border" aria-hidden="true" />
