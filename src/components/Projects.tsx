@@ -14,6 +14,16 @@ export function Projects() {
       <FadeIn delay={0.1}>
         <div className="rounded-2xl border border-border bg-surface p-8">
           <p className="text-muted">{featured.tagline}</p>
+          {featured.highlight && (
+            <p className="mt-4 rounded-xl border border-accent/30 bg-accent/5 p-4 text-sm text-muted">
+              {featured.highlight}
+            </p>
+          )}
+          {featured.architectureFlow && (
+            <p className="mt-4 overflow-x-auto whitespace-nowrap font-mono text-xs text-muted">
+              {featured.architectureFlow}
+            </p>
+          )}
           <div className="mt-4 flex flex-wrap gap-2">
             {featured.tech.map((t) => (
               <span key={t} className="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted">
@@ -34,7 +44,7 @@ export function Projects() {
               to={`/projects/${featured.slug}`}
               className="inline-flex items-center gap-1 rounded-full bg-accent px-5 py-2 text-sm font-medium text-white transition-transform hover:scale-[1.02]"
             >
-              Case Study <ArrowUpRight size={16} />
+              View Case Study <ArrowUpRight size={16} aria-hidden="true" />
             </Link>
             {featured.confidential && (
               <span className="inline-flex items-center rounded-full border border-border px-5 py-2 text-sm text-muted">

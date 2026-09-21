@@ -4,7 +4,7 @@ import { SectionHeading } from './SectionHeading'
 
 export function Experience() {
   return (
-    <section id="experience" className="mx-auto max-w-4xl px-6 py-20">
+    <section id="experience" className="mx-auto max-w-5xl px-6 py-20">
       <SectionHeading eyebrow="Experience" title="Where I've worked" />
       <div className="space-y-10">
         {experience.map((job, i) => (

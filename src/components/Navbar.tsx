@@ -8,6 +8,7 @@ const links = [
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
   { label: 'Case Studies', href: '#case-studies' },
+  { label: 'Freelance', href: '#freelance' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -28,7 +29,7 @@ export function Navbar() {
           : 'bg-transparent py-5'
       }`}
     >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6">
+      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6">
         <Link to="/" className="text-lg font-semibold tracking-tight text-text">
           {profile.name}
         </Link>

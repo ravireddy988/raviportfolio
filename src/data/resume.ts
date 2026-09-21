@@ -1,16 +1,24 @@
 export const profile = {
   name: 'Ravi Nagavolu',
   role: 'Senior Frontend Developer',
-  tagline:
-    '8+ years of experience building scalable, responsive and high-performance web applications.',
+  stack: 'React.js • Angular • TypeScript • JavaScript',
+  tagline: '8+ years building scalable, responsive and high-performance web applications.',
   subline:
     'Specialized in React.js, Angular, TypeScript and JavaScript, with hands-on experience in Node.js, Python, FastAPI, REST APIs, GraphQL and modern frontend architecture.',
+  availability: 'Available for Full-Time, Contract & Freelance Projects',
   email: 'ravireddy988@gmail.com',
   phone: '+91 90598 82868',
   linkedin: 'https://linkedin.com/in/nagavolu-ravi-13985b14b',
-  github: 'https://github.com/',
   location: 'Hyderabad, India',
 }
+
+export const heroBadges = [
+  '8+ Years Experience',
+  'React + Angular',
+  'Frontend Architecture',
+  'API Integration',
+  'Performance Optimization',
+]
 
 export const about = `I'm a Senior Frontend Developer with 8+ years of experience designing and developing scalable, responsive and user-focused web applications. My core expertise includes React.js, Angular, JavaScript and TypeScript, with hands-on experience in Node.js, Python and FastAPI.
 
@@ -18,56 +26,32 @@ I specialize in reusable component architecture, API integration, authentication
 
 export const skillGroups = [
   {
-    title: 'Frontend',
-    skills: [
-      'React.js',
-      'Angular 15+',
-      'JavaScript',
-      'TypeScript',
-      'HTML5',
-      'CSS3',
-      'SCSS / SASS',
-      'Bootstrap',
-      'Tailwind CSS',
-    ],
+    title: 'Frontend Engineering',
+    skills: ['React.js', 'Angular 15+', 'TypeScript', 'JavaScript'],
   },
   {
-    title: 'React Ecosystem',
-    skills: [
-      'React Hooks',
-      'React Router',
-      'Redux',
-      'Context API',
-      'Lazy Loading',
-      'Code Splitting',
-      'Reusable Components',
-    ],
+    title: 'State Management',
+    skills: ['Redux', 'RxJS', 'Context API', 'Angular Signals'],
   },
   {
-    title: 'Angular',
-    skills: [
-      'Angular Material',
-      'RxJS',
-      'Angular Router',
-      'Angular Animations',
-      'Reactive Forms',
-    ],
-  },
-  {
-    title: 'Backend',
+    title: 'Backend & APIs',
     skills: ['Node.js — 1.6 yrs', 'Python — 1 yr', 'FastAPI', 'REST APIs', 'GraphQL'],
+  },
+  {
+    title: 'UI & Design',
+    skills: ['HTML5', 'CSS3', 'SCSS / SASS', 'Tailwind CSS', 'Bootstrap'],
   },
   {
     title: 'Authentication',
     skills: ['SSO', 'OAuth', 'Google OAuth', 'Microsoft Azure AD'],
   },
   {
-    title: 'Testing',
+    title: 'Testing & Quality',
     skills: ['Jest', 'Unit Testing', 'Accessibility / WCAG', 'Cross-browser Testing'],
   },
   {
-    title: 'Tools',
-    skills: ['Git', 'GitHub', 'GitLab', 'Jira', 'VS Code', 'CI/CD'],
+    title: 'Cloud & Tools',
+    skills: ['AWS S3', 'Git', 'GitHub', 'GitLab', 'Jira', 'CI/CD'],
   },
   {
     title: 'Databases',
@@ -127,6 +111,8 @@ export type Project = {
   title: string
   tagline: string
   featured: boolean
+  highlight?: string
+  architectureFlow?: string
   tech: string[]
   features: string[]
   architecture?: string[]
@@ -136,7 +122,6 @@ export type Project = {
     solution: string
   }
   liveDemo?: string
-  github?: string
   confidential?: boolean
 }
 
@@ -146,6 +131,9 @@ export const projects: Project[] = [
     title: 'MediaOps',
     tagline: 'Social Media Publishing & Video Editing Platform',
     featured: true,
+    highlight:
+      'My most complex frontend project — a browser-based social media publishing and video editing platform involving multi-track timelines, video/audio editing, effects, keyframes, proxy playback, media uploads, asynchronous rendering and publishing workflows.',
+    architectureFlow: 'React → API Layer → FastAPI → Media Processing → S3 → Publishing',
     tech: ['React', 'TypeScript', 'Python', 'FastAPI', 'GraphQL', 'REST API', 'Tailwind', 'AWS S3', 'FFmpeg'],
     features: [
       'Multi-track timeline',
@@ -213,29 +201,46 @@ export const projects: Project[] = [
     ],
     confidential: true,
   },
-  {
-    slug: 'location-management',
-    title: 'Location Management',
-    tagline: 'Google Maps based location workflows',
-    featured: false,
-    tech: ['React', 'TypeScript', 'REST APIs', 'Google Maps'],
-    features: [
-      'Create / Edit / View location flows',
-      'Google Maps integration',
-      'Form validation',
-      'API-driven data sync',
-    ],
-    confidential: true,
-  },
 ]
 
 export const featuredProject = projects.find((p) => p.featured)!
 export const otherProjects = projects.filter((p) => !p.featured)
 
-export const caseStudies = [
+export type CaseStudy = {
+  title: string
+  steps: string[]
+  detail?: {
+    challenge: string[]
+    solution: string[]
+    result: string[]
+  }
+}
+
+export const caseStudies: CaseStudy[] = [
   {
     title: 'Building a Browser-Based Video Editor',
     steps: ['Problem', 'Requirements', 'Architecture', 'Implementation', 'Challenges', 'Solution', 'Result'],
+    detail: {
+      challenge: [
+        'Large video files',
+        'Browser playback/buffering',
+        'Timeline synchronization',
+        'Long FFmpeg processing',
+        'API Gateway timeout',
+      ],
+      solution: [
+        'Proxy video workflow',
+        'Range-based playback',
+        'Background FFmpeg rendering',
+        'Async render jobs',
+        'S3-based media handling',
+      ],
+      result: [
+        'Better playback workflow',
+        'Long-running render no longer blocks the API request',
+        'More scalable media processing',
+      ],
+    },
   },
   {
     title: 'Frontend Performance Optimization',
@@ -245,6 +250,37 @@ export const caseStudies = [
     title: 'Reusable Component & UI Architecture',
     steps: ['Problem', 'Requirements', 'Architecture', 'Implementation', 'Challenges', 'Solution', 'Result'],
   },
+]
+
+export const freelanceServices = [
+  'React.js / Angular development',
+  'Frontend UI development',
+  'Figma → Pixel-perfect implementation',
+  'Existing application improvements',
+  'API integration',
+  'Dashboard development',
+  'Performance optimization',
+  'Bug fixing & production support',
+  'Responsive/mobile UI development',
+  'Video/media application UI',
+  'Frontend architecture & technical consulting',
+]
+
+export const helpWith = [
+  { title: 'Build', description: 'New React / Angular applications from scratch' },
+  { title: 'Improve', description: 'Existing frontend performance, UI and architecture' },
+  { title: 'Fix', description: 'Production bugs, API issues and frontend problems' },
+  { title: 'Modernize', description: 'Legacy frontend migration and component refactoring' },
+  { title: 'Integrate', description: 'REST APIs, GraphQL, authentication and third-party services' },
+  { title: 'Consult', description: 'Frontend architecture and technical implementation' },
+]
+
+export const process = [
+  { step: '01', title: 'Understand', description: 'Requirements, existing application and goals.' },
+  { step: '02', title: 'Plan', description: 'Technical approach, scope and timeline.' },
+  { step: '03', title: 'Build', description: 'Develop responsive and maintainable frontend.' },
+  { step: '04', title: 'Test', description: 'Cross-browser testing, debugging and quality checks.' },
+  { step: '05', title: 'Deliver', description: 'Deployment support, documentation and handover.' },
 ]
 
 export const leadership = [
