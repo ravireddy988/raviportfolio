@@ -23,7 +23,7 @@ export const heroBadges = [
 
 export const stats = [
   { label: 'Years Experience', value: 8, suffix: '+' },
-  { label: 'Projects Delivered', value: 8, suffix: '+' },
+  { label: 'Projects Delivered', value: 6, suffix: '+' },
   { label: 'Primary Expertise', value: 0, suffix: '', display: 'React + Angular' },
   { label: 'APIs Integrated', value: 0, suffix: '', display: 'REST + GraphQL' },
 ]
