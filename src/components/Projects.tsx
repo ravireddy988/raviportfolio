@@ -146,15 +146,25 @@ export function Projects() {
         </div>
       </div>
 
-      <div
-        ref={scrollerRef}
-        className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-      >
-        {filteredRest.map((project, i) => (
-          <FadeIn key={project.slug} delay={i * 0.06} className="shrink-0">
-            <ProjectCard project={project} />
-          </FadeIn>
-        ))}
+      <div className="relative">
+        <div
+          ref={scrollerRef}
+          className="flex snap-x snap-mandatory gap-6 overflow-x-auto pt-2 pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {filteredRest.map((project, i) => (
+            <FadeIn key={project.slug} delay={i * 0.06} className="shrink-0">
+              <ProjectCard project={project} />
+            </FadeIn>
+          ))}
+        </div>
+        <div
+          className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-bg to-transparent"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-bg to-transparent"
+          aria-hidden="true"
+        />
       </div>
     </section>
   )
