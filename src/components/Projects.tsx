@@ -158,11 +158,11 @@ export function Projects() {
           ))}
         </div>
         <div
-          className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-bg to-transparent"
+          className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-bg via-bg/80 to-transparent"
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-bg to-transparent"
+          className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-bg via-bg/80 to-transparent"
           aria-hidden="true"
         />
       </div>
