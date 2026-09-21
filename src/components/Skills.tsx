@@ -1,11 +1,43 @@
+import {
+  SiAngular,
+  SiJavascript,
+  SiNodedotjs,
+  SiPython,
+  SiReact,
+  SiTypescript,
+} from 'react-icons/si'
 import { skillGroups } from '../data/resume'
 import { StaggerContainer, StaggerItem } from './FadeIn'
 import { SectionHeading } from './SectionHeading'
+
+const coreStack = [
+  { name: 'React', Icon: SiReact, color: '#61DAFB' },
+  { name: 'Angular', Icon: SiAngular, color: '#DD0031' },
+  { name: 'TypeScript', Icon: SiTypescript, color: '#3178C6' },
+  { name: 'JavaScript', Icon: SiJavascript, color: '#F7DF1E' },
+  { name: 'Node.js', Icon: SiNodedotjs, color: '#5FA04E' },
+  { name: 'Python', Icon: SiPython, color: '#3776AB' },
+]
 
 export function Skills() {
   return (
     <section id="skills" className="mx-auto max-w-5xl px-6 py-20">
       <SectionHeading eyebrow="Skills" title="What I work with" />
+
+      <StaggerContainer
+        className="mb-10 grid grid-cols-3 gap-3 sm:grid-cols-6"
+        stagger={0.05}
+      >
+        {coreStack.map(({ name, Icon, color }) => (
+          <StaggerItem key={name}>
+            <div className="flex flex-col items-center gap-2 rounded-2xl border border-border bg-surface px-3 py-5 text-center transition-colors hover:border-accent">
+              <Icon size={28} color={color} />
+              <span className="text-xs font-medium text-text">{name}</span>
+            </div>
+          </StaggerItem>
+        ))}
+      </StaggerContainer>
+
       <div className="grid gap-8 sm:grid-cols-2">
         {skillGroups.map((group) => (
           <div key={group.title}>

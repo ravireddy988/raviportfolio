@@ -6,9 +6,11 @@ export function Experience() {
   return (
     <section id="experience" className="mx-auto max-w-5xl px-6 py-20">
       <SectionHeading eyebrow="Experience" title="Where I've worked" />
-      <div className="space-y-10">
+      <div className="relative space-y-10 pl-8">
+        <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border" aria-hidden="true" />
         {experience.map((job, i) => (
-          <FadeIn key={`${job.company}-${job.role}`} delay={i * 0.05}>
+          <FadeIn key={`${job.company}-${job.role}`} delay={i * 0.05} className="relative">
+            <span className="absolute -left-8 top-2 h-3.5 w-3.5 rounded-full border-2 border-accent bg-bg" />
             <div className="rounded-2xl border border-border bg-surface p-6">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <h3 className="text-lg font-semibold text-text">{job.role}</h3>

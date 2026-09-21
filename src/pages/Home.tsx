@@ -10,11 +10,13 @@ import { Leadership } from '../components/Leadership'
 import { Process } from '../components/Process'
 import { Projects } from '../components/Projects'
 import { Skills } from '../components/Skills'
+import { Stats } from '../components/Stats'
 
 export function Home() {
   return (
     <main>
       <Hero />
+      <Stats />
       <About />
       <Skills />
       <Experience />

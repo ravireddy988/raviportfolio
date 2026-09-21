@@ -21,6 +21,13 @@ export const heroBadges = [
   'Performance Optimization',
 ]
 
+export const stats = [
+  { label: 'Years Experience', value: 8, suffix: '+' },
+  { label: 'Projects Delivered', value: 5, suffix: '+' },
+  { label: 'Core Frameworks', value: 2, suffix: '', note: 'React + Angular' },
+  { label: 'APIs Integrated', value: 0, suffix: '', display: 'REST + GraphQL' },
+]
+
 export const about = `I'm a Senior Frontend Developer with 8+ years of experience designing and developing scalable, responsive and user-focused web applications. My core expertise includes React.js, Angular, JavaScript and TypeScript, with hands-on experience in Node.js, Python and FastAPI.
 
 I specialize in reusable component architecture, API integration, authentication, performance optimization, accessibility and responsive UI development. I also have experience collaborating with UI/UX teams, mentoring developers and contributing to technical decisions across Agile projects.`
@@ -107,11 +114,15 @@ export const experience = [
   },
 ]
 
+export type ProjectCategory = 'React' | 'Angular' | 'Full Stack'
+
 export type Project = {
   slug: string
   title: string
   tagline: string
   featured: boolean
+  category: ProjectCategory
+  size?: 'lg' | 'md'
   highlight?: string
   architectureFlow?: string
   tech: string[]
@@ -126,12 +137,16 @@ export type Project = {
   confidential?: boolean
 }
 
+export const projectFilters: Array<'All' | ProjectCategory> = ['All', 'React', 'Angular', 'Full Stack']
+
 export const projects: Project[] = [
   {
     slug: 'mediaops',
     title: 'MediaOps',
     tagline: 'Social Media Publishing & Video Editing Platform',
     featured: true,
+    size: 'lg',
+    category: 'Full Stack',
     highlight:
       'My most complex frontend project — a browser-based social media publishing and video editing platform involving multi-track timelines, video/audio editing, effects, keyframes, proxy playback, media uploads, asynchronous rendering and publishing workflows.',
     architectureFlow: 'React → API Layer → FastAPI → Media Processing → S3 → Publishing',
@@ -167,6 +182,7 @@ export const projects: Project[] = [
     title: 'Aanvikshiki Art',
     tagline: 'E-commerce style product browsing platform',
     featured: false,
+    category: 'React',
     tech: ['React.js', 'Redux', 'React Router', 'TypeScript', 'Bootstrap'],
     features: [
       'Product listing & browsing',
@@ -187,6 +203,7 @@ export const projects: Project[] = [
     title: 'Accure One',
     tagline: 'Enterprise dashboard with role-based access',
     featured: false,
+    category: 'Angular',
     tech: ['Angular 15', 'TypeScript', 'RxJS', 'Angular Material'],
     features: [
       'Role-based authentication',
@@ -207,6 +224,8 @@ export const projects: Project[] = [
     title: 'Cero Hero',
     tagline: 'Sustainability & carbon tracking platform',
     featured: false,
+    category: 'Angular',
+    size: 'lg',
     tech: ['Angular', 'TypeScript', 'RxJS', 'Angular Material', 'REST APIs'],
     features: [
       'User sustainability dashboard',
@@ -227,6 +246,7 @@ export const projects: Project[] = [
     title: 'BMR Innovations',
     tagline: 'Corporate consulting website',
     featured: false,
+    category: 'React',
     tech: ['React.js', 'TypeScript', 'HTML5', 'CSS3', 'REST APIs'],
     features: [
       'Responsive corporate website UI',
