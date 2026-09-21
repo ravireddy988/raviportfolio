@@ -1,21 +1,23 @@
 import { motion } from 'framer-motion'
 import { coreStack } from '../data/coreStack'
 import { profile, stats } from '../data/resume'
+import { useTheme } from '../hooks/useTheme'
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
 const words = ['Senior', 'Frontend', 'Developer']
 
 export function Hero() {
+  const { theme } = useTheme()
+
   return (
     <section className="relative overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "linear-gradient(90deg, var(--color-bg) 45%, color-mix(in srgb, var(--color-bg) 55%, transparent) 100%), url('/hero-bg.jpg')",
-        }}
-      />
+      {theme === 'light' && (
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/hero-bg.png')" }}
+        />
+      )}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg" />
 
       <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-16 lg:pt-24">
