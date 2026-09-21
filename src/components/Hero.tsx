@@ -117,7 +117,7 @@ export function Hero() {
               <p className="text-xl font-semibold text-text">
                 {stat.display ?? `${stat.value}${stat.suffix}`}
               </p>
-              <p className="mt-0.5 text-xs text-muted">{stat.note ?? stat.label}</p>
+              <p className="mt-0.5 text-xs text-muted">{stat.label}</p>
             </div>
           ))}
           <div className="flex items-center gap-2 rounded-xl border border-border bg-surface px-4 py-3">
