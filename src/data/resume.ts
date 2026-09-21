@@ -201,6 +201,41 @@ export const projects: Project[] = [
     ],
     confidential: true,
   },
+  {
+    slug: 'cero-hero',
+    title: 'Cero Hero',
+    tagline: 'Sustainability & carbon tracking platform',
+    featured: false,
+    tech: ['Angular', 'TypeScript', 'RxJS', 'Angular Material', 'REST APIs'],
+    features: [
+      'User sustainability dashboard',
+      'Carbon-impact tracking UI',
+      'Sustainability challenges & rewards screens',
+      'REST API integration for user activity data',
+      'Responsive Angular UI',
+    ],
+    architecture: [
+      'Angular / TypeScript UI with Angular Material',
+      'RxJS for reactive data streams',
+      'REST API integration with backend services',
+    ],
+    confidential: true,
+  },
+  {
+    slug: 'bmr-innovations',
+    title: 'BMR Innovations',
+    tagline: 'Corporate consulting website',
+    featured: false,
+    tech: ['React.js', 'TypeScript', 'HTML5', 'CSS3', 'REST APIs'],
+    features: [
+      'Responsive corporate website UI',
+      'Service & consulting content sections',
+      'Reusable UI components',
+      'Contact/inquiry workflows',
+      'Cross-browser responsive design',
+    ],
+    confidential: true,
+  },
 ]
 
 export const featuredProject = projects.find((p) => p.featured)!
