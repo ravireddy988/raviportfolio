@@ -6,6 +6,7 @@ export const profile = {
   subline:
     'Specialized in React.js, Angular, TypeScript and JavaScript, with hands-on experience in Node.js, Python, FastAPI, REST APIs, GraphQL and modern frontend architecture.',
   email: 'ravireddy988@gmail.com',
+  phone: '+91 90598 82868',
   linkedin: 'https://linkedin.com/in/nagavolu-ravi-13985b14b',
   github: 'https://github.com/',
   location: 'Hyderabad, India',
