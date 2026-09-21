@@ -43,7 +43,7 @@ export const skillGroups = [
   },
   {
     title: 'Backend & APIs',
-    skills: ['Node.js — 1.6 yrs', 'Python — 1 yr', 'FastAPI', 'REST APIs', 'GraphQL'],
+    skills: ['Node.js', 'Python', 'FastAPI', 'REST APIs', 'GraphQL'],
   },
   {
     title: 'UI & Design',
@@ -73,12 +73,12 @@ export const experience = [
     role: 'Senior Frontend Developer',
     duration: 'Sep 2025 – Present',
     project: 'MediaOps',
-    tech: ['React.js', 'TypeScript', 'Python', 'FastAPI', 'GraphQL', 'REST APIs', 'Tailwind CSS'],
+    tech: ['React.js', 'TypeScript', 'Python', 'FastAPI', 'REST APIs', 'Tailwind CSS'],
     bullets: [
       'Built scalable React.js interfaces for a social media publishing and content management platform.',
       'Developed complex video player and editing workflows with playback controls, subtitles and quality selection.',
       'Built reusable and accessible UI components following WCAG standards.',
-      'Integrated REST and GraphQL APIs with backend services built using Python/FastAPI.',
+      'Integrated REST APIs with backend services built using Python/FastAPI.',
       'Improved frontend performance using lazy loading, code splitting and component memoization.',
       'Implemented authentication using Google OAuth and Microsoft Azure AD.',
     ],
@@ -150,7 +150,7 @@ export const projects: Project[] = [
     highlight:
       'My most complex frontend project — a browser-based social media publishing and video editing platform involving multi-track timelines, video/audio editing, effects, keyframes, proxy playback, media uploads, asynchronous rendering and publishing workflows.',
     architectureFlow: 'React → API Layer → FastAPI → Media Processing → S3 → Publishing',
-    tech: ['React', 'TypeScript', 'Python', 'FastAPI', 'GraphQL', 'REST API', 'Tailwind', 'AWS S3', 'FFmpeg'],
+    tech: ['React', 'TypeScript', 'Python', 'FastAPI', 'REST API', 'Tailwind', 'AWS S3', 'FFmpeg'],
     features: [
       'Multi-track timeline',
       'Video/audio editing (trim, split, crop)',
@@ -163,7 +163,7 @@ export const projects: Project[] = [
     ],
     architecture: [
       'React / TypeScript UI — Timeline, Player, Effects panels',
-      'REST + GraphQL API layer',
+      'REST API layer',
       'Python / FastAPI backend services',
       'AWS S3 for media & proxy storage',
       'FFmpeg for background rendering',

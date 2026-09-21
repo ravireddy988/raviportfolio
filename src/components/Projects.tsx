@@ -1,5 +1,5 @@
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react'
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import type { Project } from '../data/resume'
 import { projectFilters, projects } from '../data/resume'
@@ -42,11 +42,24 @@ export function Projects() {
   const rest = projects.filter((p) => !p.featured)
   const [filter, setFilter] = useState<(typeof projectFilters)[number]>('All')
   const scrollerRef = useRef<HTMLDivElement>(null)
+  const [canScrollLeft, setCanScrollLeft] = useState(false)
+  const [canScrollRight, setCanScrollRight] = useState(false)
 
   const filteredRest = useMemo(
     () => (filter === 'All' ? rest : rest.filter((p) => p.category === filter)),
     [filter, rest],
   )
+
+  const updateScrollState = () => {
+    const el = scrollerRef.current
+    if (!el) return
+    setCanScrollLeft(el.scrollLeft > 4)
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4)
+  }
+
+  useEffect(() => {
+    updateScrollState()
+  }, [filteredRest])
 
   const scrollByCard = (dir: 1 | -1) => {
     scrollerRef.current?.scrollBy({ left: dir * 320, behavior: 'smooth' })
@@ -149,6 +162,7 @@ export function Projects() {
       <div className="relative">
         <div
           ref={scrollerRef}
+          onScroll={updateScrollState}
           className="flex snap-x snap-mandatory gap-6 overflow-x-auto pt-2 pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {filteredRest.map((project, i) => (
@@ -157,14 +171,18 @@ export function Projects() {
             </FadeIn>
           ))}
         </div>
-        <div
-          className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-bg via-bg/80 to-transparent"
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-bg via-bg/80 to-transparent"
-          aria-hidden="true"
-        />
+        {canScrollLeft && (
+          <div
+            className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-bg to-transparent transition-opacity"
+            aria-hidden="true"
+          />
+        )}
+        {canScrollRight && (
+          <div
+            className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-bg to-transparent transition-opacity"
+            aria-hidden="true"
+          />
+        )}
       </div>
     </section>
   )

@@ -1,7 +1,7 @@
-import { Mail, MapPin, Phone } from 'lucide-react'
+import { MapPin, Phone } from 'lucide-react'
 import { profile } from '../data/resume'
 import { FadeIn } from './FadeIn'
-import { GithubIcon, LinkedinIcon } from './icons'
+import { GithubIcon, GmailIcon, LinkedinIcon } from './icons'
 
 export function Contact() {
   return (
@@ -20,7 +20,7 @@ export function Contact() {
 
         <div className="mt-8 flex flex-col items-center gap-3 text-muted sm:flex-row sm:justify-center sm:gap-6">
           <a href={`mailto:${profile.email}`} className="flex items-center gap-2 hover:text-text">
-            <Mail size={16} /> {profile.email}
+            <GmailIcon size={16} /> {profile.email}
           </a>
           <a href={`tel:${profile.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 hover:text-text">
             <Phone size={16} /> {profile.phone}
