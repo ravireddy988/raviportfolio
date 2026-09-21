@@ -1,86 +1,48 @@
 import { motion } from 'framer-motion'
-import { Mail } from 'lucide-react'
-import { useState } from 'react'
-import { heroBadges, profile } from '../data/resume'
-import { GithubIcon, LinkedinIcon } from './icons'
+import { coreStack } from '../data/coreStack'
+import { profile, stats } from '../data/resume'
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
 const words = ['Senior', 'Frontend', 'Developer']
 
-const initials = profile.name
-  .split(' ')
-  .map((w) => w[0])
-  .join('')
-
-function AvatarSlot() {
-  const [imgFailed, setImgFailed] = useState(false)
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.96 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
-      className="relative mx-auto aspect-square w-56 shrink-0 sm:w-64 lg:w-72"
-    >
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent to-accent-2 opacity-20 blur-2xl" />
-      <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-3xl border border-border bg-surface">
-        {!imgFailed ? (
-          <img
-            src="/avatar.jpg"
-            alt={profile.name}
-            className="h-full w-full object-cover"
-            onError={() => setImgFailed(true)}
-          />
-        ) : (
-          <span className="gradient-text text-6xl font-bold">{initials}</span>
-        )}
-      </div>
-    </motion.div>
-  )
-}
-
 export function Hero() {
   return (
-    <section className="mx-auto flex max-w-5xl flex-col-reverse items-center gap-12 px-6 pb-24 pt-16 lg:flex-row lg:items-center lg:justify-between lg:pt-24 lg:text-left">
-      <div className="flex flex-1 flex-col items-center text-center lg:items-start lg:text-left">
+    <section className="relative overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "linear-gradient(90deg, var(--color-bg) 45%, color-mix(in srgb, var(--color-bg) 55%, transparent) 100%), url('/hero-bg.jpg')",
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg" />
+
+      <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-16 lg:pt-24">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: EASE }}
-          className="mb-4 text-sm font-medium tracking-wide text-accent"
+          className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent"
         >
-          {profile.name}
+          <span className="h-px w-8 bg-accent" />
+          Building Better Web Experiences
         </motion.p>
 
-        <h1 className="flex flex-wrap justify-center gap-x-4 text-4xl font-semibold tracking-tight sm:text-6xl lg:justify-start">
-          {words.map((word, i) => (
-            <motion.span
-              key={word}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
-              className={i === 1 ? 'gradient-text' : ''}
-            >
-              {word}
-            </motion.span>
-          ))}
+        <h1 className="max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">
+          <span className="block">
+            Hi, I'm <span className="gradient-text">Ravi</span>
+          </span>
+          <span className="mt-1 block">
+            {words[0]} {words[1]} {words[2]}
+          </span>
         </h1>
 
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.25, ease: EASE }}
-          className="mt-4 text-sm font-medium text-muted"
-        >
-          {profile.stack}
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.32, ease: EASE }}
-          className="mt-4 max-w-2xl text-lg text-muted"
+          className="mt-5 max-w-xl text-lg text-muted"
         >
           {profile.tagline}
         </motion.p>
@@ -88,83 +50,90 @@ export function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4, ease: EASE }}
-          className="mt-3 max-w-2xl text-sm text-muted"
+          transition={{ duration: 0.5, delay: 0.32, ease: EASE }}
+          className="mt-3 max-w-xl text-sm text-muted"
         >
           {profile.subline}
         </motion.p>
 
-        <motion.span
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.46, ease: EASE }}
-          className="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-medium text-muted"
-        >
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-          {profile.availability}
-        </motion.span>
-
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.52, ease: EASE }}
-          className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start"
+          transition={{ duration: 0.5, delay: 0.4, ease: EASE }}
+          className="mt-8 flex flex-wrap items-center gap-4"
         >
           <a
             href="#projects"
             className="rounded-full bg-accent px-6 py-2.5 text-sm font-medium text-white transition-transform hover:scale-[1.02]"
           >
-            View Projects
+            View My Work →
           </a>
           <a
             href="/resume.pdf"
-            className="rounded-full border border-border px-6 py-2.5 text-sm font-medium text-text transition-colors hover:border-accent hover:text-accent"
+            className="rounded-full border border-border bg-surface px-6 py-2.5 text-sm font-medium text-text transition-colors hover:border-accent hover:text-accent"
           >
             Download Resume
           </a>
           <a
             href="#contact"
-            className="rounded-full border border-border px-6 py-2.5 text-sm font-medium text-text transition-colors hover:border-accent hover:text-accent"
+            className="rounded-full border border-border bg-surface px-6 py-2.5 text-sm font-medium text-text transition-colors hover:border-accent hover:text-accent"
           >
-            Hire Me
+            Let's Connect
           </a>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6, ease: EASE }}
-          className="mt-9 flex flex-wrap justify-center gap-2 lg:justify-start"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.48, ease: EASE }}
+          className="mt-10 flex flex-wrap gap-3"
         >
-          {heroBadges.map((badge) => (
+          {coreStack.slice(0, 5).map(({ name, Icon, color }) => (
             <span
-              key={badge}
-              className="rounded-full border border-border px-3 py-1 text-xs text-muted"
+              key={name}
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-medium text-text"
             >
-              {badge}
+              <Icon size={14} color={color} />
+              {name}
             </span>
           ))}
         </motion.div>
 
         <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.56, ease: EASE }}
+          className="mt-6 flex flex-wrap gap-3"
+        >
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="rounded-xl border border-border bg-surface px-4 py-3"
+            >
+              <p className="text-xl font-semibold text-text">
+                {stat.display ?? `${stat.value}${stat.suffix}`}
+              </p>
+              <p className="mt-0.5 text-xs text-muted">{stat.note ?? stat.label}</p>
+            </div>
+          ))}
+          <div className="flex items-center gap-2 rounded-xl border border-border bg-surface px-4 py-3">
+            <span className="h-2 w-2 rounded-full bg-emerald-400" />
+            <div>
+              <p className="text-sm font-medium text-text">Open To</p>
+              <p className="text-xs text-muted">Full-Time · Contract · Freelance</p>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.68, ease: EASE }}
-          className="mt-8 flex gap-5 text-muted"
+          transition={{ duration: 0.5, delay: 0.64, ease: EASE }}
+          className="mt-10 max-w-md text-sm italic text-muted"
         >
-          <a href={profile.linkedin} target="_blank" rel="noreferrer" className="transition-colors hover:text-text">
-            <LinkedinIcon size={20} />
-          </a>
-          <a href={profile.github} target="_blank" rel="noreferrer" className="transition-colors hover:text-text">
-            <GithubIcon size={20} />
-          </a>
-          <a href={`mailto:${profile.email}`} className="transition-colors hover:text-text">
-            <Mail size={20} />
-          </a>
-        </motion.div>
+          "Good code, built with care, is the foundation of every great product."
+        </motion.p>
       </div>
-
-      <AvatarSlot />
     </section>
   )
 }
