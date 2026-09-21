@@ -1,13 +1,27 @@
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 import { experience } from '../data/resume'
 import { FadeIn } from './FadeIn'
 import { SectionHeading } from './SectionHeading'
 
 export function Experience() {
+  const trackRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: trackRef,
+    offset: ['start 0.85', 'end 0.6'],
+  })
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
+
   return (
     <section id="experience" className="mx-auto max-w-5xl px-6 py-14">
       <SectionHeading eyebrow="Experience" title="Where I've worked" />
-      <div className="relative space-y-10 pl-8">
+      <div ref={trackRef} className="relative space-y-10 pl-8">
         <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border" aria-hidden="true" />
+        <motion.div
+          className="absolute left-[7px] top-2 w-px bg-accent"
+          style={{ height: lineHeight }}
+          aria-hidden="true"
+        />
         {experience.map((job, i) => (
           <FadeIn key={`${job.company}-${job.role}`} delay={i * 0.05} className="relative">
             <span className="absolute -left-8 top-2 h-3.5 w-3.5 rounded-full border-2 border-accent bg-bg" />
