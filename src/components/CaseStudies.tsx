@@ -1,4 +1,5 @@
-import { BarChart3, Cloud, Compass, ShieldCheck, Target, User, Users, Wrench, Zap } from 'lucide-react'
+import { AlertCircle, BarChart3, Cloud, Compass, ShieldCheck, Target, User, Users, Wrench, Zap } from 'lucide-react'
+import type { ReactNode } from 'react'
 import {
   SiAngular,
   SiGit,
@@ -137,8 +138,34 @@ const colorClasses = {
   },
 } as const
 
-const detailIcons = { challenge: Target, solution: Wrench, result: BarChart3 } as const
-const detailLabels = { challenge: 'Challenge', solution: 'Solution', result: 'Result' } as const
+type Colors = (typeof colorClasses)[keyof typeof colorClasses]
+
+function Block({ icon: Icon, label, c, children }: { icon: typeof Target; label: string; c: Colors; children: ReactNode }) {
+  return (
+    <div className="text-sm">
+      <p className="mb-1.5 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-text">
+        <span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-md ${c.iconBg} ${c.eyebrow}`}>
+          <Icon size={13} />
+        </span>
+        {label}
+      </p>
+      {children}
+    </div>
+  )
+}
+
+function Bullets({ items, c }: { items: string[]; c: Colors }) {
+  return (
+    <ul className="space-y-1 pl-1 text-muted">
+      {items.map((item) => (
+        <li key={item} className="flex gap-2">
+          <span className={`mt-1.5 h-1 w-1 shrink-0 rounded-full ${c.eyebrow.replace('text-', 'bg-')}`} />
+          {item}
+        </li>
+      ))}
+    </ul>
+  )
+}
 
 export function CaseStudies() {
   return (
@@ -164,84 +191,26 @@ export function CaseStudies() {
                 <h3 className="mb-2 text-base font-semibold text-text">{cs.title}</h3>
                 <p className="mb-4 text-sm text-muted">{cs.description}</p>
 
-                <div className="mb-4 text-sm">
-                  <p className="mb-1.5 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-text">
-                    <span
-                      className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-md ${c.iconBg} ${c.eyebrow}`}
-                    >
-                      <User size={13} />
-                    </span>
-                    Your Role
-                  </p>
-                  <p className="pl-1 text-muted">{cs.role}</p>
+                <div className="flex-1 space-y-4">
+                  <Block icon={AlertCircle} label="Problem" c={c}>
+                    <p className="pl-1 text-muted">{cs.problem}</p>
+                  </Block>
+                  <Block icon={User} label="Your Role" c={c}>
+                    <p className="pl-1 text-muted">{cs.role}</p>
+                  </Block>
+                  <Block icon={Compass} label="Technical Decision" c={c}>
+                    <Bullets items={cs.decisions} c={c} />
+                  </Block>
+                  <Block icon={Target} label="Challenge" c={c}>
+                    <Bullets items={cs.detail.challenge} c={c} />
+                  </Block>
+                  <Block icon={Wrench} label="Solution" c={c}>
+                    <Bullets items={cs.detail.solution} c={c} />
+                  </Block>
+                  <Block icon={BarChart3} label="Outcome" c={c}>
+                    <Bullets items={cs.detail.outcome} c={c} />
+                  </Block>
                 </div>
-
-                <div className="mb-4 text-sm">
-                  <p className="mb-1.5 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-text">
-                    <span
-                      className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-md ${c.iconBg} ${c.eyebrow}`}
-                    >
-                      <Compass size={13} />
-                    </span>
-                    Approach
-                  </p>
-                  <ul className="space-y-1 pl-1 text-muted">
-                    {cs.approach.map((item) => (
-                      <li key={item} className="flex gap-2">
-                        <span className={`mt-1.5 h-1 w-1 shrink-0 rounded-full ${c.eyebrow.replace('text-', 'bg-')}`} />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {cs.detail ? (
-                  <div className="flex-1 space-y-4 text-sm">
-                    {(['challenge', 'solution', 'result'] as const).map((key) => {
-                      const Icon = detailIcons[key]
-                      return (
-                        <div key={key}>
-                          <p className="mb-1.5 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-text">
-                            <span
-                              className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-md ${c.iconBg} ${c.eyebrow}`}
-                            >
-                              <Icon size={13} />
-                            </span>
-                            {detailLabels[key]}
-                          </p>
-                          <ul className={`space-y-1 pl-1 text-muted`}>
-                            {cs.detail![key].map((item) => (
-                              <li key={item} className="flex gap-2">
-                                <span className={`mt-1.5 h-1 w-1 shrink-0 rounded-full ${c.eyebrow.replace('text-', 'bg-')}`} />
-                                {item}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )
-                    })}
-                  </div>
-                ) : (
-                  <ol className="flex-1 space-y-1.5 text-sm text-muted">
-                    {cs.steps.map((step) => (
-                      <li key={step} className="flex gap-2">
-                        <span className={`mt-1.5 h-1 w-1 shrink-0 rounded-full ${c.eyebrow.replace('text-', 'bg-')}`} />
-                        {step}
-                      </li>
-                    ))}
-                  </ol>
-                )}
-
-                {cs.stats && (
-                  <div className="mt-5 grid grid-cols-2 gap-2 border-t border-border pt-4">
-                    {cs.stats.map((stat) => (
-                      <div key={stat.label} className={`rounded-xl ${c.iconBg} px-3 py-2 text-center`}>
-                        <p className={`text-lg font-bold ${c.eyebrow}`}>{stat.value}</p>
-                        <p className="text-[11px] text-muted">{stat.label}</p>
-                      </div>
-                    ))}
-                  </div>
-                )}
 
                 {cs.color === 'accent-2' && (
                   <div className="mt-5 flex flex-wrap gap-2 border-t border-border pt-4">

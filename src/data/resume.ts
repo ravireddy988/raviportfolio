@@ -267,15 +267,14 @@ export type CaseStudy = {
   title: string
   eyebrow: string
   description: string
+  problem: string
   role: string
-  approach: string[]
-  steps: string[]
+  decisions: string[]
   color: 'accent' | 'teal' | 'accent-2'
-  stats?: { value: string; label: string }[]
-  detail?: {
+  detail: {
     challenge: string[]
     solution: string[]
-    result: string[]
+    outcome: string[]
   }
 }
 
@@ -285,13 +284,14 @@ export const caseStudies: CaseStudy[] = [
     eyebrow: 'Core Product',
     description:
       'A powerful in-browser video editing tool with seamless playback, editing and export capabilities.',
+    problem:
+      'Creators needed to edit and publish large videos directly in the browser, but raw files were too heavy for smooth playback and long server-side renders were timing out at the API Gateway.',
     role: 'Owned the frontend architecture end-to-end — timeline, player, effects panels and the upload/export workflow — while coordinating closely with backend on the async rendering contract.',
-    approach: [
+    decisions: [
       'Broke the editor into independently testable modules (timeline, player, effects) behind a shared state layer',
       'Prototyped the proxy-playback flow first to de-risk the hardest technical unknown before building UI around it',
       'Worked with backend to move rendering off the request/response cycle once timeouts surfaced in testing',
     ],
-    steps: ['Problem', 'Requirements', 'Architecture', 'Implementation', 'Challenges', 'Solution', 'Result'],
     color: 'accent',
     detail: {
       challenge: [
@@ -308,7 +308,7 @@ export const caseStudies: CaseStudy[] = [
         'S3-based media handling',
         'Resumable uploads & error recovery',
       ],
-      result: [
+      outcome: [
         'Better playback workflow',
         'No more API timeouts',
         'Scalable media processing',
@@ -321,13 +321,14 @@ export const caseStudies: CaseStudy[] = [
     eyebrow: 'Performance',
     description:
       'Improved performance and user experience for smooth editing even with complex timelines and effects.',
+    problem:
+      'As projects grew to many tracks and effects, the editor slowed down — the timeline lagged, memory usage climbed and large projects took too long to load.',
     role: 'Led the performance effort independently — profiled the app, identified the bottlenecks and drove the fixes through to production.',
-    approach: [
+    decisions: [
       'Profiled first rather than guessing — used browser devtools and bundle analysis to find the actual bottlenecks',
       'Fixed re-render and memory issues before reaching for heavier tools like Web Workers',
       'Validated every change against real project data, not just isolated benchmarks, so gains held up in practice',
     ],
-    steps: ['Problem', 'Requirements', 'Architecture', 'Implementation', 'Challenges', 'Solution', 'Result'],
     color: 'teal',
     detail: {
       challenge: [
@@ -344,7 +345,7 @@ export const caseStudies: CaseStudy[] = [
         'Web Workers for heavy tasks',
         'Performance profiling & bundle optimization',
       ],
-      result: [
+      outcome: [
         'Faster load times',
         'Smoother playback',
         'Reduced memory usage',
@@ -358,13 +359,14 @@ export const caseStudies: CaseStudy[] = [
     eyebrow: 'Architecture',
     description:
       'Built a scalable, maintainable and reusable component system for a complex video editing application.',
+    problem:
+      'As features were added, UI code was being duplicated across screens with inconsistent patterns, which made every new feature slower and riskier to ship.',
     role: 'Set the component and state architecture standards for the team and built the initial design system that other engineers built on top of.',
-    approach: [
+    decisions: [
       'Audited existing screens to find repeated patterns before designing the shared component API',
       'Kept components composable rather than over-configurable, so new features rarely needed changes to shared code',
       'Documented conventions in the codebase so the patterns stayed consistent as the team grew',
     ],
-    steps: ['Problem', 'Requirements', 'Architecture', 'Implementation', 'Challenges', 'Solution', 'Result'],
     color: 'accent-2',
     detail: {
       challenge: [
@@ -380,7 +382,7 @@ export const caseStudies: CaseStudy[] = [
         'Followed clean folder structure & best practices',
         'Used TypeScript for type safety',
       ],
-      result: [
+      outcome: [
         'Faster feature development',
         'Consistent and maintainable codebase',
         'Easier collaboration',
@@ -392,34 +394,12 @@ export const caseStudies: CaseStudy[] = [
 ]
 
 export const freelanceServices = [
-  'React.js / Angular development',
-  'Frontend UI development',
-  'Figma → Pixel-perfect implementation',
-  'Existing application improvements',
-  'API integration',
-  'Dashboard development',
-  'Performance optimization',
-  'Bug fixing & production support',
-  'Responsive/mobile UI development',
-  'Video/media application UI',
-  'Frontend architecture & technical consulting',
-]
-
-export const helpWith = [
-  { title: 'Build', description: 'New React / Angular applications from scratch' },
-  { title: 'Improve', description: 'Existing frontend performance, UI and architecture' },
-  { title: 'Fix', description: 'Production bugs, API issues and frontend problems' },
-  { title: 'Modernize', description: 'Legacy frontend migration and component refactoring' },
-  { title: 'Integrate', description: 'REST APIs, GraphQL, authentication and third-party services' },
-  { title: 'Consult', description: 'Frontend architecture and technical implementation' },
-]
-
-export const process = [
-  { step: '01', title: 'Understand', description: 'Requirements, existing application and goals.' },
-  { step: '02', title: 'Plan', description: 'Technical approach, scope and timeline.' },
-  { step: '03', title: 'Build', description: 'Develop responsive and maintainable frontend.' },
-  { step: '04', title: 'Test', description: 'Cross-browser testing, debugging and quality checks.' },
-  { step: '05', title: 'Deliver', description: 'Deployment support, documentation and handover.' },
+  { title: 'Frontend Development', description: 'React.js, Angular and TypeScript web applications, built from scratch or extended.' },
+  { title: 'UI Development', description: 'Responsive, pixel-perfect interfaces from Figma and design files.' },
+  { title: 'Frontend Modernization', description: 'Legacy React/Angular applications moved to a modern, maintainable architecture.' },
+  { title: 'API Integration', description: 'REST APIs, GraphQL, authentication and third-party services.' },
+  { title: 'Performance Optimization', description: 'Faster loading, rendering and overall frontend performance.' },
+  { title: 'Technical Consulting', description: 'Architecture decisions, code reviews and frontend best practices.' },
 ]
 
 export const leadership = [
