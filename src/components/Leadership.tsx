@@ -29,7 +29,7 @@ const icons = [
 
 export function Leadership() {
   return (
-    <section id="leadership" className="mx-auto max-w-7xl px-4 py-14">
+    <section id="leadership" className="mx-auto max-w-7xl px-10 py-14">
       <SectionHeading eyebrow="Leadership" title="Beyond writing code" />
       <StaggerContainer className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" stagger={0.04}>
         {leadership.map((item, i) => {

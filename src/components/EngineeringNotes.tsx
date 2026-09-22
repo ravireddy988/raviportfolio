@@ -5,7 +5,7 @@ import { SectionHeading } from './SectionHeading'
 
 export function EngineeringNotes() {
   return (
-    <section id="engineering-notes" className="mx-auto max-w-7xl px-4 py-14">
+    <section id="engineering-notes" className="mx-auto max-w-7xl px-10 py-14">
       <SectionHeading eyebrow="Engineering Notes" title="Thinking behind the work" />
       <div className="grid gap-4 sm:grid-cols-2">
         {engineeringNotes.map((note, i) => (

@@ -63,7 +63,7 @@ export function Navbar() {
         scrolled ? 'border-b border-border bg-bg/80 py-3 backdrop-blur-md' : 'bg-transparent py-5'
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-10">
         <Link to="/" className="flex items-center gap-2.5">
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-accent-2 text-sm font-bold text-white">
             R
@@ -110,7 +110,7 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="mt-4 flex flex-col gap-1 border-t border-border px-4 pt-4 lg:hidden">
+        <div className="mt-4 flex flex-col gap-1 border-t border-border px-10 pt-4 lg:hidden">
           {links.map((link) => (
             <a
               key={link.href}

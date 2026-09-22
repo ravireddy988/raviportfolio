@@ -142,7 +142,7 @@ const detailLabels = { challenge: 'Challenge', solution: 'Solution', result: 'Re
 
 export function CaseStudies() {
   return (
-    <section id="case-studies" className="mx-auto max-w-7xl px-4 py-14">
+    <section id="case-studies" className="mx-auto max-w-7xl px-10 py-14">
       <SectionHeading eyebrow="Case Studies" title="Deeper engineering write-ups" />
       <DeepDiveBanner />
       <div className="grid gap-6 sm:grid-cols-3">
