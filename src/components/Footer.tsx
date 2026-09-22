@@ -5,7 +5,7 @@ import { GmailIcon, LinkedinIcon } from './icons'
 export function Footer() {
   return (
     <footer className="border-t border-border px-4 py-8">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-2 text-sm text-muted sm:flex-row sm:justify-center sm:gap-4">
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-2 text-sm text-muted sm:flex-row sm:justify-center sm:gap-4">
         <a href={`mailto:${profile.email}`} className="flex items-center gap-1.5 hover:text-text">
           <GmailIcon size={15} /> Email
         </a>

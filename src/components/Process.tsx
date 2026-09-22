@@ -9,7 +9,7 @@ const EASE = [0.16, 1, 0.3, 1] as const
 
 export function Process() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-14">
+    <section className="mx-auto max-w-4xl px-4 py-14">
       <SectionHeading eyebrow="Freelance" title="How I Work" />
       <div className="space-y-4">
         {process.map((item, i) => {

@@ -66,7 +66,7 @@ export function Projects() {
   }
 
   return (
-    <section id="projects" className="mx-auto max-w-6xl px-4 py-14">
+    <section id="projects" className="mx-auto max-w-4xl px-4 py-14">
       <SectionHeading eyebrow="Selected Work" title="Products, platforms and engineering work" />
       <FadeIn delay={0.05} className="-mt-6 mb-10 max-w-2xl text-sm text-muted">
         A selection of products, platforms, and engineering work I've contributed to across

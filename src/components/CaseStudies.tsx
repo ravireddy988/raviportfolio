@@ -7,7 +7,7 @@ const icons = [Film, Zap, LayoutGrid]
 
 export function CaseStudies() {
   return (
-    <section id="case-studies" className="mx-auto max-w-6xl px-4 py-14">
+    <section id="case-studies" className="mx-auto max-w-4xl px-4 py-14">
       <SectionHeading eyebrow="Case Studies" title="Deeper engineering write-ups" />
       <div className="grid gap-6 sm:grid-cols-3">
         {caseStudies.map((cs, i) => {
