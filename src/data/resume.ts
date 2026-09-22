@@ -264,7 +264,11 @@ export const otherProjects = projects.filter((p) => !p.featured)
 
 export type CaseStudy = {
   title: string
+  eyebrow: string
+  description: string
   steps: string[]
+  color: 'accent' | 'teal' | 'accent-2'
+  stats?: { value: string; label: string }[]
   detail?: {
     challenge: string[]
     solution: string[]
@@ -275,36 +279,100 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     title: 'Building a Browser-Based Video Editor',
+    eyebrow: 'Core Product',
+    description:
+      'A powerful in-browser video editing tool with seamless playback, editing and export capabilities.',
     steps: ['Problem', 'Requirements', 'Architecture', 'Implementation', 'Challenges', 'Solution', 'Result'],
+    color: 'accent',
     detail: {
       challenge: [
-        'Large video files',
-        'Browser playback/buffering',
+        'Handle large video files in browser',
+        'Smooth playback & buffering',
         'Timeline synchronization',
-        'Long FFmpeg processing',
-        'API Gateway timeout',
+        'Long FFmpeg processing times',
+        'API Gateway timeout issues',
       ],
       solution: [
         'Proxy video workflow',
         'Range-based playback',
-        'Background FFmpeg rendering',
-        'Async render jobs',
+        'Background FFmpeg rendering (async)',
         'S3-based media handling',
+        'Resumable uploads & error recovery',
       ],
       result: [
         'Better playback workflow',
-        'Long-running render no longer blocks the API request',
-        'More scalable media processing',
+        'No more API timeouts',
+        'Scalable media processing',
+        'Supports large videos efficiently',
       ],
     },
   },
   {
     title: 'Frontend Performance Optimization',
+    eyebrow: 'Performance',
+    description:
+      'Improved performance and user experience for smooth editing even with complex timelines and effects.',
     steps: ['Problem', 'Requirements', 'Architecture', 'Implementation', 'Challenges', 'Solution', 'Result'],
+    color: 'teal',
+    stats: [
+      { value: '60%', label: 'Faster Load' },
+      { value: '70%', label: 'Lower Memory' },
+      { value: '3x', label: 'Smoother Playback' },
+      { value: '50%', label: 'Smaller Bundle' },
+    ],
+    detail: {
+      challenge: [
+        'Slow UI with multiple tracks',
+        'High memory usage',
+        'Playback lag with effects',
+        'Inefficient re-renders',
+        'Large project loading issues',
+      ],
+      solution: [
+        'Optimized state management',
+        'Virtualized timeline rendering',
+        'Memoization & lazy loading',
+        'Web Workers for heavy tasks',
+        'Performance profiling & bundle optimization',
+      ],
+      result: [
+        'Faster load times',
+        'Smooth 60fps playback',
+        'Reduced memory usage',
+        'Better user experience',
+        'Handles complex projects efficiently',
+      ],
+    },
   },
   {
     title: 'Reusable Component & UI Architecture',
+    eyebrow: 'Architecture',
+    description:
+      'Built a scalable, maintainable and reusable component system for a complex video editing application.',
     steps: ['Problem', 'Requirements', 'Architecture', 'Implementation', 'Challenges', 'Solution', 'Result'],
+    color: 'accent-2',
+    detail: {
+      challenge: [
+        'Hard to maintain UI components',
+        'Inconsistent design patterns',
+        'Scaling features became difficult',
+        'Code duplication',
+      ],
+      solution: [
+        'Built reusable, modular components',
+        'Created a design system (UI library)',
+        'Implemented scalable state architecture',
+        'Followed clean folder structure & best practices',
+        'Used TypeScript for type safety',
+      ],
+      result: [
+        'Faster feature development',
+        'Consistent and maintainable codebase',
+        'Easier collaboration',
+        'Scalable for future features',
+        'Reduced development time',
+      ],
+    },
   },
 ]
 
