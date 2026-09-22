@@ -5,7 +5,7 @@ import { SectionHeading } from './SectionHeading'
 
 export function Skills() {
   return (
-    <section id="skills" className="mx-auto max-w-4xl px-4 py-14">
+    <section id="skills" className="mx-auto max-w-7xl px-4 py-14">
       <SectionHeading eyebrow="Skills" title="What I work with" />
 
       <StaggerContainer
