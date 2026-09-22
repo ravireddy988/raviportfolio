@@ -321,7 +321,7 @@ export const caseStudies: CaseStudy[] = [
     eyebrow: 'Performance',
     description:
       'Improved performance and user experience for smooth editing even with complex timelines and effects.',
-    role: 'Led the performance effort independently — profiled the app, identified the bottlenecks and drove the fixes through to measurable results.',
+    role: 'Led the performance effort independently — profiled the app, identified the bottlenecks and drove the fixes through to production.',
     approach: [
       'Profiled first rather than guessing — used browser devtools and bundle analysis to find the actual bottlenecks',
       'Fixed re-render and memory issues before reaching for heavier tools like Web Workers',
@@ -329,12 +329,6 @@ export const caseStudies: CaseStudy[] = [
     ],
     steps: ['Problem', 'Requirements', 'Architecture', 'Implementation', 'Challenges', 'Solution', 'Result'],
     color: 'teal',
-    stats: [
-      { value: '60%', label: 'Faster Load' },
-      { value: '70%', label: 'Lower Memory' },
-      { value: '3x', label: 'Smoother Playback' },
-      { value: '50%', label: 'Smaller Bundle' },
-    ],
     detail: {
       challenge: [
         'Slow UI with multiple tracks',
@@ -352,7 +346,7 @@ export const caseStudies: CaseStudy[] = [
       ],
       result: [
         'Faster load times',
-        'Smooth 60fps playback',
+        'Smoother playback',
         'Reduced memory usage',
         'Better user experience',
         'Handles complex projects efficiently',
