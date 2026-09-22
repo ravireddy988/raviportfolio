@@ -37,7 +37,7 @@ export function Hero() {
           <span className="block text-4xl font-semibold sm:text-6xl">
             Hi, I'm <span className="gradient-text">Ravi</span>
           </span>
-          <span className="mt-2 block text-xl font-medium text-muted sm:text-2xl">
+          <span className="mt-2 block text-2xl font-medium text-text sm:text-3xl">
             {words[0]} {words[1]} {words[2]}
           </span>
         </h1>
