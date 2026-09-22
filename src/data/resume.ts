@@ -2,9 +2,10 @@ export const profile = {
   name: 'Ravi Nagavolu',
   role: 'Senior Frontend Developer',
   stack: 'React.js • Angular • TypeScript • JavaScript',
-  tagline: '8+ years building scalable, responsive and high-performance web applications.',
+  tagline:
+    '8+ years building scalable, high-performance web applications with React.js, Angular, TypeScript and JavaScript.',
   subline:
-    'Specialized in React.js, Angular, TypeScript and JavaScript, with hands-on experience in Node.js, Python, FastAPI, REST APIs, GraphQL and modern frontend architecture.',
+    'Experienced in modern frontend architecture, reusable UI systems, API integration, performance optimization, and responsive product experiences.',
   availability: 'Available for Full-Time, Contract & Freelance Projects',
   email: 'ravireddy988@gmail.com',
   phone: '+91 90598 82868',
@@ -23,9 +24,9 @@ export const heroBadges = [
 
 export const stats = [
   { label: 'Years Experience', value: 8, suffix: '+' },
-  { label: 'Projects Delivered', value: 6, suffix: '+' },
-  { label: 'Primary Expertise', value: 0, suffix: '', display: 'React + Angular' },
-  { label: 'APIs Integrated', value: 0, suffix: '', display: 'REST + GraphQL' },
+  { label: 'Core Expertise', value: 0, suffix: '', display: 'React + Angular' },
+  { label: 'Backend Experience', value: 0, suffix: '', display: 'Node.js + Python' },
+  { label: 'API Integration', value: 0, suffix: '', display: 'REST + GraphQL' },
 ]
 
 export const about = `I'm a Senior Frontend Developer with 8+ years of experience designing and developing scalable, responsive and user-focused web applications. My core expertise includes React.js, Angular, JavaScript and TypeScript, with hands-on experience in Node.js, Python and FastAPI.

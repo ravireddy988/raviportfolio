@@ -30,14 +30,14 @@ export function Hero() {
           className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent"
         >
           <span className="h-px w-8 bg-accent" />
-          Building Better Web Experiences
+          Engineering Modern Web Experiences
         </motion.p>
 
-        <h1 className="max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">
-          <span className="block">
+        <h1 className="max-w-3xl tracking-tight">
+          <span className="block text-4xl font-semibold sm:text-6xl">
             Hi, I'm <span className="gradient-text">Ravi</span>
           </span>
-          <span className="mt-1 block">
+          <span className="mt-2 block text-xl font-medium text-muted sm:text-2xl">
             {words[0]} {words[1]} {words[2]}
           </span>
         </h1>
@@ -92,7 +92,7 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.48, ease: EASE }}
           className="mt-10 flex flex-wrap gap-3"
         >
-          {coreStack.slice(0, 5).map(({ name, Icon, color }) => (
+          {coreStack.slice(0, 6).map(({ name, Icon, color }) => (
             <span
               key={name}
               className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-medium text-text"
@@ -135,7 +135,7 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.64, ease: EASE }}
           className="mt-10 max-w-md text-sm italic text-muted"
         >
-          "Good code, built with care, is the foundation of every great product."
+          "I build scalable interfaces that balance performance, usability, and maintainability."
         </motion.p>
       </div>
     </section>
