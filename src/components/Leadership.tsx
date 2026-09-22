@@ -4,7 +4,7 @@ import { SectionHeading } from './SectionHeading'
 
 export function Leadership() {
   return (
-    <section id="leadership" className="mx-auto max-w-5xl px-6 py-14">
+    <section id="leadership" className="mx-auto max-w-6xl px-4 py-14">
       <SectionHeading eyebrow="Leadership" title="Beyond writing code" />
       <StaggerContainer className="flex flex-wrap gap-2" stagger={0.04}>
         {leadership.map((item) => (

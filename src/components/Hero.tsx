@@ -22,7 +22,7 @@ export function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg" />
 
-      <div className="relative mx-auto max-w-5xl px-6 pb-14 pt-12 lg:pt-16">
+      <div className="relative mx-auto max-w-6xl px-4 pb-14 pt-12 lg:pt-16">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -68,19 +68,19 @@ export function Hero() {
         >
           <a
             href="#projects"
-            className="rounded-full bg-accent px-6 py-2.5 text-sm font-medium text-white transition-transform hover:scale-[1.02]"
+            className="rounded-full bg-accent px-4 py-2.5 text-sm font-medium text-white transition-transform hover:scale-[1.02]"
           >
             View My Work →
           </a>
           <a
             href="/resume.pdf"
-            className="rounded-full border border-border bg-surface px-6 py-2.5 text-sm font-medium text-text transition-colors hover:border-accent hover:text-accent"
+            className="rounded-full border border-border bg-surface px-4 py-2.5 text-sm font-medium text-text transition-colors hover:border-accent hover:text-accent"
           >
             Download Resume
           </a>
           <a
             href="#contact"
-            className="rounded-full border border-border bg-surface px-6 py-2.5 text-sm font-medium text-text transition-colors hover:border-accent hover:text-accent"
+            className="rounded-full border border-border bg-surface px-4 py-2.5 text-sm font-medium text-text transition-colors hover:border-accent hover:text-accent"
           >
             Let's Connect
           </a>

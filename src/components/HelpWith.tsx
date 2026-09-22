@@ -16,7 +16,7 @@ const EASE = [0.16, 1, 0.3, 1] as const
 
 export function HelpWith() {
   return (
-    <section className="mx-auto max-w-5xl px-6 py-14">
+    <section className="mx-auto max-w-6xl px-4 py-14">
       <SectionHeading eyebrow="Freelance" title="What I Can Help With" />
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {helpWith.map((item, i) => {

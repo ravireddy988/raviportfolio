@@ -10,7 +10,7 @@ export function ProjectDetail() {
   if (!project) return <Navigate to="/" replace />
 
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16">
+    <main className="mx-auto max-w-3xl px-4 py-16">
       <Link to="/#projects" className="inline-flex items-center gap-1 text-sm text-muted hover:text-text">
         <ArrowLeft size={16} /> Back to projects
       </Link>

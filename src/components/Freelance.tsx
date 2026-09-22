@@ -5,7 +5,7 @@ import { SectionHeading } from './SectionHeading'
 
 export function Freelance() {
   return (
-    <section id="freelance" className="mx-auto max-w-5xl px-6 py-14">
+    <section id="freelance" className="mx-auto max-w-6xl px-4 py-14">
       <SectionHeading eyebrow="Freelance & Contract Services" title="Available for selected freelance and contract projects" />
 
       <StaggerContainer className="grid gap-2 sm:grid-cols-2" stagger={0.04}>
@@ -23,7 +23,7 @@ export function Freelance() {
 
       <a
         href="#contact"
-        className="mt-6 inline-block rounded-full bg-accent px-6 py-2.5 text-sm font-medium text-white transition-transform hover:scale-[1.02]"
+        className="mt-6 inline-block rounded-full bg-accent px-4 py-2.5 text-sm font-medium text-white transition-transform hover:scale-[1.02]"
       >
         Have a project in mind? Let's discuss →
       </a>

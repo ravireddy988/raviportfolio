@@ -1,18 +1,21 @@
 import { Menu, Moon, Sun, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useActiveSection } from '../hooks/useActiveSection'
 import { useTheme } from '../hooks/useTheme'
 import { profile } from '../data/resume'
 
 const links = [
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Case Studies', href: '#case-studies' },
-  { label: 'Freelance', href: '#freelance' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'About', href: '#about', id: 'about' },
+  { label: 'Skills', href: '#skills', id: 'skills' },
+  { label: 'Experience', href: '#experience', id: 'experience' },
+  { label: 'Projects', href: '#projects', id: 'projects' },
+  { label: 'Case Studies', href: '#case-studies', id: 'case-studies' },
+  { label: 'Freelance', href: '#freelance', id: 'freelance' },
+  { label: 'Contact', href: '#contact', id: 'contact' },
 ]
+
+const sectionIds = links.map((link) => link.id)
 
 function ThemeSwitch() {
   const { theme, toggleTheme } = useTheme()
@@ -45,6 +48,7 @@ function ThemeSwitch() {
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const activeId = useActiveSection(sectionIds)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -58,7 +62,7 @@ export function Navbar() {
         scrolled ? 'border-b border-border bg-bg/80 py-3 backdrop-blur-md' : 'bg-transparent py-5'
       }`}
     >
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-6">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2.5">
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-accent-2 text-sm font-bold text-white">
             R
@@ -69,10 +73,15 @@ export function Navbar() {
           </span>
         </Link>
 
-        <ul className="hidden gap-6 text-sm text-muted lg:flex">
+        <ul className="hidden gap-4 text-sm lg:flex">
           {links.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="transition-colors hover:text-text">
+              <a
+                href={link.href}
+                className={`transition-colors hover:text-text ${
+                  activeId === link.id ? 'font-medium text-accent' : 'text-muted'
+                }`}
+              >
                 {link.label}
               </a>
             </li>
@@ -100,13 +109,15 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="mt-4 flex flex-col gap-1 border-t border-border px-6 pt-4 lg:hidden">
+        <div className="mt-4 flex flex-col gap-1 border-t border-border px-4 pt-4 lg:hidden">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="rounded-lg px-2 py-2 text-sm text-muted hover:bg-surface-hover hover:text-text"
+              className={`rounded-lg px-2 py-2 text-sm hover:bg-surface-hover hover:text-text ${
+                activeId === link.id ? 'font-medium text-accent' : 'text-muted'
+              }`}
             >
               {link.label}
             </a>

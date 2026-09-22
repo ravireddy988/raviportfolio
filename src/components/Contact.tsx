@@ -5,7 +5,7 @@ import { GithubIcon, GmailIcon, LinkedinIcon } from './icons'
 
 export function Contact() {
   return (
-    <section id="contact" className="mx-auto max-w-5xl px-6 py-16 text-center">
+    <section id="contact" className="mx-auto max-w-6xl px-4 py-16 text-center">
       <FadeIn>
         <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
           Have a project or frontend challenge?
@@ -39,13 +39,13 @@ export function Contact() {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a
             href={`mailto:${profile.email}`}
-            className="inline-block rounded-full bg-accent px-6 py-2.5 text-sm font-medium text-white transition-transform hover:scale-[1.02]"
+            className="inline-block rounded-full bg-accent px-4 py-2.5 text-sm font-medium text-white transition-transform hover:scale-[1.02]"
           >
             Let's Work Together
           </a>
           <a
             href="/resume.pdf"
-            className="inline-block rounded-full border border-border px-6 py-2.5 text-sm font-medium text-text transition-colors hover:border-accent hover:text-accent"
+            className="inline-block rounded-full border border-border px-4 py-2.5 text-sm font-medium text-text transition-colors hover:border-accent hover:text-accent"
           >
             Download Resume
           </a>

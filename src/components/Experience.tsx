@@ -13,7 +13,7 @@ export function Experience() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
 
   return (
-    <section id="experience" className="mx-auto max-w-5xl px-6 py-14">
+    <section id="experience" className="mx-auto max-w-6xl px-4 py-14">
       <SectionHeading eyebrow="Experience" title="Where I've worked" />
       <div ref={trackRef} className="relative space-y-10 pl-8">
         <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border" aria-hidden="true" />
