@@ -1,4 +1,4 @@
-import { BarChart3, Cloud, ShieldCheck, Target, Users, Wrench, Zap } from 'lucide-react'
+import { BarChart3, Cloud, Compass, ShieldCheck, Target, User, Users, Wrench, Zap } from 'lucide-react'
 import {
   SiAngular,
   SiGit,
@@ -163,6 +163,37 @@ export function CaseStudies() {
                 </p>
                 <h3 className="mb-2 text-base font-semibold text-text">{cs.title}</h3>
                 <p className="mb-4 text-sm text-muted">{cs.description}</p>
+
+                <div className="mb-4 text-sm">
+                  <p className="mb-1.5 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-text">
+                    <span
+                      className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-md ${c.iconBg} ${c.eyebrow}`}
+                    >
+                      <User size={13} />
+                    </span>
+                    Your Role
+                  </p>
+                  <p className="pl-1 text-muted">{cs.role}</p>
+                </div>
+
+                <div className="mb-4 text-sm">
+                  <p className="mb-1.5 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-text">
+                    <span
+                      className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-md ${c.iconBg} ${c.eyebrow}`}
+                    >
+                      <Compass size={13} />
+                    </span>
+                    Approach
+                  </p>
+                  <ul className="space-y-1 pl-1 text-muted">
+                    {cs.approach.map((item) => (
+                      <li key={item} className="flex gap-2">
+                        <span className={`mt-1.5 h-1 w-1 shrink-0 rounded-full ${c.eyebrow.replace('text-', 'bg-')}`} />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
                 {cs.detail ? (
                   <div className="flex-1 space-y-4 text-sm">

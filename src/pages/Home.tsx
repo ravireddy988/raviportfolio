@@ -1,6 +1,7 @@
 import { About } from '../components/About'
 import { CaseStudies } from '../components/CaseStudies'
 import { Contact } from '../components/Contact'
+import { EngineeringNotes } from '../components/EngineeringNotes'
 import { Experience } from '../components/Experience'
 import { Footer } from '../components/Footer'
 import { Freelance } from '../components/Freelance'
@@ -24,6 +25,7 @@ export function Home() {
       <HelpWith />
       <Process />
       <Leadership />
+      <EngineeringNotes />
       <Contact />
       <Footer />
     </main>

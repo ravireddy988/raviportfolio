@@ -267,6 +267,8 @@ export type CaseStudy = {
   title: string
   eyebrow: string
   description: string
+  role: string
+  approach: string[]
   steps: string[]
   color: 'accent' | 'teal' | 'accent-2'
   stats?: { value: string; label: string }[]
@@ -283,6 +285,12 @@ export const caseStudies: CaseStudy[] = [
     eyebrow: 'Core Product',
     description:
       'A powerful in-browser video editing tool with seamless playback, editing and export capabilities.',
+    role: 'Owned the frontend architecture end-to-end — timeline, player, effects panels and the upload/export workflow — while coordinating closely with backend on the async rendering contract.',
+    approach: [
+      'Broke the editor into independently testable modules (timeline, player, effects) behind a shared state layer',
+      'Prototyped the proxy-playback flow first to de-risk the hardest technical unknown before building UI around it',
+      'Worked with backend to move rendering off the request/response cycle once timeouts surfaced in testing',
+    ],
     steps: ['Problem', 'Requirements', 'Architecture', 'Implementation', 'Challenges', 'Solution', 'Result'],
     color: 'accent',
     detail: {
@@ -313,6 +321,12 @@ export const caseStudies: CaseStudy[] = [
     eyebrow: 'Performance',
     description:
       'Improved performance and user experience for smooth editing even with complex timelines and effects.',
+    role: 'Led the performance effort independently — profiled the app, identified the bottlenecks and drove the fixes through to measurable results.',
+    approach: [
+      'Profiled first rather than guessing — used browser devtools and bundle analysis to find the actual bottlenecks',
+      'Fixed re-render and memory issues before reaching for heavier tools like Web Workers',
+      'Validated every change against real project data, not just isolated benchmarks, so gains held up in practice',
+    ],
     steps: ['Problem', 'Requirements', 'Architecture', 'Implementation', 'Challenges', 'Solution', 'Result'],
     color: 'teal',
     stats: [
@@ -350,6 +364,12 @@ export const caseStudies: CaseStudy[] = [
     eyebrow: 'Architecture',
     description:
       'Built a scalable, maintainable and reusable component system for a complex video editing application.',
+    role: 'Set the component and state architecture standards for the team and built the initial design system that other engineers built on top of.',
+    approach: [
+      'Audited existing screens to find repeated patterns before designing the shared component API',
+      'Kept components composable rather than over-configurable, so new features rarely needed changes to shared code',
+      'Documented conventions in the codebase so the patterns stayed consistent as the team grew',
+    ],
     steps: ['Problem', 'Requirements', 'Architecture', 'Implementation', 'Challenges', 'Solution', 'Result'],
     color: 'accent-2',
     detail: {
@@ -409,14 +429,67 @@ export const process = [
 ]
 
 export const leadership = [
-  'Mentoring junior developers',
-  'Code reviews',
-  'Architecture discussions',
-  'UI standards',
-  'Requirement analysis',
-  'Technical estimation',
-  'Production debugging',
-  'Cross-functional collaboration',
-  'Client communication',
-  'Agile/Scrum participation',
+  {
+    title: 'Mentoring',
+    description: 'Guided junior developers on React/Angular fundamentals and code quality.',
+  },
+  {
+    title: 'Code Reviews',
+    description: 'Reviewed PRs for correctness, performance and maintainability before merge.',
+  },
+  {
+    title: 'Architecture Discussions',
+    description: 'Contributed to decisions on state management, folder structure and component design.',
+  },
+  {
+    title: 'UI Standards',
+    description: 'Defined reusable component and design-system conventions for the team.',
+  },
+  {
+    title: 'Requirement Analysis',
+    description: 'Worked with stakeholders to translate business needs into technical scope.',
+  },
+  {
+    title: 'Technical Estimation',
+    description: 'Scoped and estimated frontend work for sprint planning and delivery timelines.',
+  },
+  {
+    title: 'Production Debugging',
+    description: 'Diagnosed and resolved live issues across frontend and API integration layers.',
+  },
+  {
+    title: 'Cross-Functional Collaboration',
+    description: 'Partnered with backend, design and QA teams to ship features end-to-end.',
+  },
+  {
+    title: 'Client Communication',
+    description: 'Presented technical approaches and trade-offs directly to clients and stakeholders.',
+  },
+  {
+    title: 'Agile/Scrum Participation',
+    description: 'Active in sprint planning, standups and retrospectives across Agile teams.',
+  },
+]
+
+export const engineeringNotes = [
+  {
+    title: 'How I Built a Browser-Based Video Editor',
+    summary:
+      'Notes on the architecture behind an in-browser video editor — proxy playback, timeline state, and moving FFmpeg rendering off the request cycle.',
+  },
+  {
+    title: 'React Performance Optimization Techniques',
+    summary:
+      'Practical techniques for fixing slow re-renders and high memory usage in data-heavy React UIs — memoization, virtualization and profiling.',
+  },
+  {
+    title: 'Designing Reusable React Components',
+    summary:
+      'How I approach component API design so shared UI stays composable instead of growing endless configuration props over time.',
+  },
+  {
+    title: 'Handling Large Video Files in Web Applications',
+    summary:
+      'Patterns for working with large media in the browser without blocking the UI — chunked uploads, range requests and background processing.',
+  },
 ]

@@ -12,6 +12,7 @@ const links = [
   { label: 'Projects', href: '#projects', id: 'projects' },
   { label: 'Case Studies', href: '#case-studies', id: 'case-studies' },
   { label: 'Freelance', href: '#freelance', id: 'freelance' },
+  { label: 'Notes', href: '#engineering-notes', id: 'engineering-notes' },
   { label: 'Contact', href: '#contact', id: 'contact' },
 ]
 
