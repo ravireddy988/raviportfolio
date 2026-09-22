@@ -1,5 +1,6 @@
-import { AlertCircle, BarChart3, Cloud, Compass, ShieldCheck, Target, User, Users, Wrench, Zap } from 'lucide-react'
+import { AlertCircle, BarChart3, Compass, Target, User, Wrench } from 'lucide-react'
 import type { ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import {
   SiAngular,
   SiGit,
@@ -20,99 +21,6 @@ const techStack = [
   { name: 'Tailwind CSS', Icon: SiTailwindcss, color: '#38BDF8' },
   { name: 'Git', Icon: SiGit, color: '#F05032' },
 ]
-
-function LaptopMockup() {
-  return (
-    <div className="relative hidden shrink-0 lg:block" aria-hidden="true">
-      <div className="w-64 overflow-hidden rounded-t-lg border-4 border-border bg-surface shadow-xl">
-        <div className="flex items-center gap-1.5 bg-bg px-2 py-1.5">
-          <span className="h-1.5 w-1.5 rounded-full bg-red-400" />
-          <span className="h-1.5 w-1.5 rounded-full bg-yellow-400" />
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-        </div>
-        <div className="aspect-video bg-gradient-to-br from-accent/20 via-bg to-accent-2/20 p-2">
-          <div className="h-1/2 rounded bg-black/30" />
-          <div className="mt-1.5 flex gap-1">
-            <div className="h-6 flex-1 rounded bg-accent/40" />
-            <div className="h-6 flex-1 rounded bg-accent-2/40" />
-            <div className="h-6 flex-1 rounded bg-teal-500/40" />
-          </div>
-        </div>
-      </div>
-      <div className="h-2 w-72 -translate-x-4 rounded-b-xl bg-border" />
-    </div>
-  )
-}
-
-const bannerBadges = [
-  { icon: Zap, label: 'High Performance', sub: 'Smooth Editing' },
-  { icon: Users, label: 'Browser Based', sub: 'No Installation' },
-  { icon: Cloud, label: 'Scalable', sub: 'Cloud Ready' },
-  { icon: ShieldCheck, label: 'Production Ready', sub: 'Real World Usage' },
-]
-
-function DeepDiveBanner() {
-  return (
-    <FadeIn className="mb-8 overflow-hidden rounded-2xl border border-border bg-surface p-6 sm:p-8">
-      <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
-        <div>
-          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            Project Deep Dive
-          </p>
-          <h3 className="text-2xl font-bold tracking-tight sm:text-3xl">
-            <span className="gradient-text">{featuredProject.title}</span>
-            <span className="text-text"> — {featuredProject.tagline}</span>
-          </h3>
-          <p className="mt-2 text-sm text-muted">Create • Edit • Collaborate • Publish</p>
-          <p className="mt-1 text-sm text-muted">{featuredProject.highlight}</p>
-
-          <div className="mt-5 flex flex-wrap gap-3">
-            {bannerBadges.map(({ icon: Icon, label, sub }) => (
-              <div
-                key={label}
-                className="flex items-center gap-2 rounded-xl border border-border bg-bg px-3 py-2"
-              >
-                <Icon size={16} className="text-accent" />
-                <div className="leading-tight">
-                  <p className="text-xs font-medium text-text">{label}</p>
-                  <p className="text-[11px] text-muted">{sub}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <LaptopMockup />
-      </div>
-    </FadeIn>
-  )
-}
-
-function DeepDiveFooter() {
-  return (
-    <FadeIn delay={0.1} className="mt-6 rounded-2xl border border-border bg-surface px-6 py-5">
-      <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-        <p className="text-sm font-medium text-text">
-          Empowering Creators <span className="text-muted">with Better Tools</span>
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted">
-          <span className="flex items-center gap-1.5">
-            <Zap size={13} className="text-accent" /> Faster Editing
-          </span>
-          <span className="flex items-center gap-1.5">
-            <Users size={13} className="text-accent" /> Seamless Collaboration
-          </span>
-          <span className="flex items-center gap-1.5">
-            <Cloud size={13} className="text-accent" /> Built for Scale
-          </span>
-        </div>
-        <p style={{ fontFamily: 'var(--font-hand)' }} className="text-xl text-accent-2">
-          Create · Edit · Share a Better Tomorrow
-        </p>
-      </div>
-    </FadeIn>
-  )
-}
 
 const colorClasses = {
   accent: {
@@ -171,7 +79,15 @@ export function CaseStudies() {
   return (
     <section id="case-studies" className="mx-auto max-w-7xl px-10 py-14">
       <SectionHeading eyebrow="Case Studies" title="Deeper engineering write-ups" />
-      <DeepDiveBanner />
+      <FadeIn>
+        <p className="-mt-6 mb-8 text-sm text-muted">
+          All three case studies below come from my work on{' '}
+          <Link to={`/projects/${featuredProject.slug}`} className="font-medium text-accent hover:underline">
+            {featuredProject.title}
+          </Link>
+          .
+        </p>
+      </FadeIn>
       <div className="grid gap-6 sm:grid-cols-3">
         {caseStudies.map((cs, i) => {
           const c = colorClasses[cs.color]
@@ -230,7 +146,6 @@ export function CaseStudies() {
           )
         })}
       </div>
-      <DeepDiveFooter />
     </section>
   )
 }
